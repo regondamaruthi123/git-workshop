@@ -1,0 +1,32 @@
+# Node.js dependencies
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Python Virtual Environments & Cache
+venv/
+ai-service/venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Database Files
+*.sqlite
+backend/hyperdetect.sqlite
+backend/hyperdetect.sqlite-journal
+
+# Local Environment variables
+.env
+backend/.env
+
+# Multer Uploads
+backend/uploads/
+!backend/uploads/.gitkeep
+
+# Build assets
+dist/
+frontend/dist/
+
+# OS Specific
+.DS_Store
+Thumbs.db
