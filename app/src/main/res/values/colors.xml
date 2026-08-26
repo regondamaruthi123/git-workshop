@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Modern Premium Dark Theme Palette -->
+    <color name="bg_dark">#0A0915</color>
+    <color name="card_dark">#121124</color>
+    <color name="card_border">#2C294F</color>
+    
+    <!-- Neon Accent Colors -->
+    <color name="primary_neon">#00F2FE</color> <!-- Vibrant Cyan -->
+    <color name="secondary_neon">#9B51E0</color> <!-- Cyber Purple -->
+    <color name="accent_pink">#F355FF</color> <!-- Synth Pink -->
+    
+    <!-- Status / Diagnostic Colors -->
+    <color name="success_neon">#00F59B</color> <!-- Neon Green -->
+    <color name="alert_neon">#FF3860</color> <!-- Neon Pinkish-Red -->
+    <color name="warning_neon">#FFDD57</color> <!-- Cyber Yellow -->
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#F8F9FA</color>
+    <color name="text_secondary">#8E9AA8</color>
+</resources>

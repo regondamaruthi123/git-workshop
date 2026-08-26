@@ -1,0 +1,39 @@
+name: API Load Testing
+
+on:
+  push:
+    paths:
+      - 'BrainBattleBackend/**'
+      - '.github/workflows/load-test.yml'
+  pull_request:
+    paths:
+      - 'BrainBattleBackend/**'
+      - '.github/workflows/load-test.yml'
+  workflow_dispatch:
+
+jobs:
+  load-test:
+    name: Execute API Load Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup k6
+        uses: grafana/setup-k6-action@v1
+
+      - name: Run k6 Load Test
+        run: |
+          k6 run --summary-export=summary.json BrainBattleBackend/scripts/load-test.js
+        env:
+          BACKEND_URL: ${{ secrets.BACKEND_URL || 'http://localhost:5000' }}
+
+      - name: Parse k6 Load Test Summary
+        run: |
+          node BrainBattleBackend/scripts/parseK6Summary.js

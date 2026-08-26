@@ -7,7 +7,8 @@ frontend/node_modules/
 venv/
 ai-service/venv/
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
 .ipynb_checkpoints/
 
 # Database Files
@@ -30,3 +31,17 @@ frontend/dist/
 # OS Specific
 .DS_Store
 Thumbs.db
+
+# Android Build and IDE files
+.gradle/
+local.properties
+/.idea/
+/build/
+/app/build/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+
+# k6 outputs (only dynamic reports)
+summary.json
