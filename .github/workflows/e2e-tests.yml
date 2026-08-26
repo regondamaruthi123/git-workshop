@@ -176,11 +176,6 @@ jobs:
             Test_Results/master-report.html
             Test_Results/master-report.xlsx
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-        with:
-          enablement: true
-
       - name: Organize Deployment Assets
         run: |
           mkdir -p public-pages
@@ -189,11 +184,8 @@ jobs:
           # Ensure index.html points to the master dashboard
           cp Test_Results/master-report.html public-pages/index.html
 
-      - name: Upload GitHub Pages Artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to GitHub Pages (Branch Deploy)
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          path: public-pages
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          folder: public-pages
+          branch: gh-pages
