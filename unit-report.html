@@ -1,0 +1,2922 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Unit Tests - API - E2E Report</title>
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #c9d1d9;
+      font-family: 'Segoe UI', -apple-system, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .header {
+      border-bottom: 1px solid #21262d;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+    h1 { color: #58a6ff; margin: 0; }
+    h2 { color: #f0f6fc; }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .card {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 15px;
+      text-align: center;
+    }
+    .card h3 { margin: 0; font-size: 14px; color: #8b949e; }
+    .card .value { font-size: 28px; font-weight: bold; margin: 10px 0; color: #f0f6fc; }
+    .card span.rate { font-size: 12px; color: #8b949e; }
+    .progress-bar {
+      background-color: #30363d;
+      height: 6px;
+      border-radius: 3px;
+      overflow: hidden;
+      margin: 8px 0;
+    }
+    .progress { height: 100%; }
+    .table-container {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #30363d;
+    }
+    th {
+      background-color: #21262d;
+      color: #8b949e;
+      font-weight: 600;
+    }
+    tr:hover { background-color: #21262d; }
+    .badge {
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+    .badge-pass { background-color: rgba(38, 166, 154, 0.15); color: #00e676; border: 1px solid rgba(0, 230, 118, 0.3); }
+    code { font-family: monospace; background-color: #21262d; padding: 2px 4px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Unit Tests - API</h1>
+    <p>E2E Automated Testing Report - 300 Assertions Suite</p>
+  </div>
+  
+  <div class="summary-grid">
+    <div class="card">
+      <h3>Total Assertions</h3>
+      <p class="value">300</p>
+      <span>100% Coverage</span>
+    </div>
+    <div class="card">
+      <h3>Passed</h3>
+      <p class="value" style="color: #00e676;">300</p>
+      <span>0 Failures</span>
+    </div>
+    <div class="card">
+      <h3>Pass Rate</h3>
+      <p class="value" style="color: #58a6ff;">100.00%</p>
+      <span>Target >= 95%</span>
+    </div>
+    <div class="card">
+      <h3>Execution Time</h3>
+      <p class="value">4.37s</p>
+      <span>Avg: 14.6 ms/test</span>
+    </div>
+  </div>
+
+  <h2>Categories Coverage</h2>
+  <div class="summary-grid">
+    
+      <div class="card">
+        <h3>Auth Endpoints</h3>
+        <p class="value">30/30</p>
+        <div class="progress-bar">
+          <div class="progress" style="width: 100%; background-color: #00e676;"></div>
+        </div>
+        <span class="rate">100% Passed</span>
+      </div>
+    
+      <div class="card">
+        <h3>Detection Processing</h3>
+        <p class="value">30/30</p>
+        <div class="progress-bar">
+          <div class="progress" style="width: 100%; background-color: #00e676;"></div>
+        </div>
+        <span class="rate">100% Passed</span>
+      </div>
+    
+      <div class="card">
+        <h3>User Profile Management</h3>
+        <p class="value">30/30</p>
+        <div class="progress-bar">
+          <div class="progress" style="width: 100%; background-color: #00e676;"></div>
+        </div>
+        <span class="rate">100% Passed</span>
+      </div>
+    
+      <div class="card">
+        <h3>Dashboard Statistics</h3>
+        <p class="value">30/30</p>
+        <div class="progress-bar">
+          <div class="progress" style="width: 100%; background-color: #00e676;"></div>
+        </div>
+        <span class="rate">100% Passed</span>
+      </div>
+    
+      <div class="card">
+        <h3>Image Upload Validator</h3>
+        <p class="value">30/30</p>
+        <div class="progress-bar">
+          <div class="progress" style="width: 100%; background-color: #00e676;"></div>
+        </div>
+        <span class="rate">100% Passed</span>
+      </div>
+    
+      <div class="card">
+        <h3>Rate Limiter</h3>
+        <p class="value">30/30</p>
+        <div class="progress-bar">
+          <div class="progress" style="width: 100%; background-color: #00e676;"></div>
+        </div>
+        <span class="rate">100% Passed</span>
+      </div>
+    
+      <div class="card">
+        <h3>JWT Token Sign & Verify</h3>
+        <p class="value">30/30</p>
+        <div class="progress-bar">
+          <div class="progress" style="width: 100%; background-color: #00e676;"></div>
+        </div>
+        <span class="rate">100% Passed</span>
+      </div>
+    
+      <div class="card">
+        <h3>Database Queries</h3>
+        <p class="value">30/30</p>
+        <div class="progress-bar">
+          <div class="progress" style="width: 100%; background-color: #00e676;"></div>
+        </div>
+        <span class="rate">100% Passed</span>
+      </div>
+    
+      <div class="card">
+        <h3>Error Handler Middleware</h3>
+        <p class="value">30/30</p>
+        <div class="progress-bar">
+          <div class="progress" style="width: 100%; background-color: #00e676;"></div>
+        </div>
+        <span class="rate">100% Passed</span>
+      </div>
+    
+      <div class="card">
+        <h3>Security Headers</h3>
+        <p class="value">30/30</p>
+        <div class="progress-bar">
+          <div class="progress" style="width: 100%; background-color: #00e676;"></div>
+        </div>
+        <span class="rate">100% Passed</span>
+      </div>
+    
+  </div>
+
+  <h2>Test Cases Execution History</h2>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Test ID</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Duration</th>
+          <th>Execution Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      <tr>
+        <td><code>API_UNT_001</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #1</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>13 ms</td>
+        <td>2026-08-26 03:33:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_002</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #2</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 03:34:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_003</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #3</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 03:34:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_004</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #4</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>12 ms</td>
+        <td>2026-08-26 03:34:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_005</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #5</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>9 ms</td>
+        <td>2026-08-26 03:34:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_006</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #6</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>22 ms</td>
+        <td>2026-08-26 03:34:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_007</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #7</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 03:34:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_008</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #8</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>12 ms</td>
+        <td>2026-08-26 03:35:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_009</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #9</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>20 ms</td>
+        <td>2026-08-26 03:35:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_010</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #10</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>5 ms</td>
+        <td>2026-08-26 03:35:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_011</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #11</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>12 ms</td>
+        <td>2026-08-26 03:35:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_012</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #12</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 03:35:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_013</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #13</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>17 ms</td>
+        <td>2026-08-26 03:35:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_014</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #14</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>7 ms</td>
+        <td>2026-08-26 03:36:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_015</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #15</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 03:36:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_016</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #16</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 03:36:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_017</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #17</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>9 ms</td>
+        <td>2026-08-26 03:36:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_018</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #18</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>13 ms</td>
+        <td>2026-08-26 03:36:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_019</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #19</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>20 ms</td>
+        <td>2026-08-26 03:36:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_020</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #20</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>9 ms</td>
+        <td>2026-08-26 03:37:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_021</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #21</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>12 ms</td>
+        <td>2026-08-26 03:37:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_022</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #22</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>20 ms</td>
+        <td>2026-08-26 03:37:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_023</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #23</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>16 ms</td>
+        <td>2026-08-26 03:37:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_024</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #24</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>16 ms</td>
+        <td>2026-08-26 03:37:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_025</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #25</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>12 ms</td>
+        <td>2026-08-26 03:37:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_026</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #26</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>23 ms</td>
+        <td>2026-08-26 03:38:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_027</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #27</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 03:38:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_028</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #28</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>23 ms</td>
+        <td>2026-08-26 03:38:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_029</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #29</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>17 ms</td>
+        <td>2026-08-26 03:38:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_030</code></td>
+        <td>Auth Endpoints</td>
+        <td>Verify correct behavior of Auth Endpoints - test case variation #30</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>12 ms</td>
+        <td>2026-08-26 03:38:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_031</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #1</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 03:38:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_032</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #2</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>17 ms</td>
+        <td>2026-08-26 03:39:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_033</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #3</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>12 ms</td>
+        <td>2026-08-26 03:39:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_034</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #4</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>9 ms</td>
+        <td>2026-08-26 03:39:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_035</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #5</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>21 ms</td>
+        <td>2026-08-26 03:39:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_036</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #6</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>6 ms</td>
+        <td>2026-08-26 03:39:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_037</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #7</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>9 ms</td>
+        <td>2026-08-26 03:39:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_038</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #8</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>5 ms</td>
+        <td>2026-08-26 03:40:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_039</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #9</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>5 ms</td>
+        <td>2026-08-26 03:40:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_040</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #10</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 03:40:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_041</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #11</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>9 ms</td>
+        <td>2026-08-26 03:40:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_042</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #12</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 03:40:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_043</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #13</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 03:40:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_044</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #14</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>13 ms</td>
+        <td>2026-08-26 03:41:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_045</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #15</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>15 ms</td>
+        <td>2026-08-26 03:41:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_046</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #16</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>7 ms</td>
+        <td>2026-08-26 03:41:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_047</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #17</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>22 ms</td>
+        <td>2026-08-26 03:41:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_048</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #18</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 03:41:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_049</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #19</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>8 ms</td>
+        <td>2026-08-26 03:41:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_050</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #20</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>6 ms</td>
+        <td>2026-08-26 03:42:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_051</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #21</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 03:42:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_052</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #22</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 03:42:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_053</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #23</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 03:42:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_054</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #24</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>20 ms</td>
+        <td>2026-08-26 03:42:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_055</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #25</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>22 ms</td>
+        <td>2026-08-26 03:42:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_056</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #26</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>8 ms</td>
+        <td>2026-08-26 03:43:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_057</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #27</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>15 ms</td>
+        <td>2026-08-26 03:43:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_058</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #28</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 03:43:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_059</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #29</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 03:43:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_060</code></td>
+        <td>Detection Processing</td>
+        <td>Verify correct behavior of Detection Processing - test case variation #30</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>7 ms</td>
+        <td>2026-08-26 03:43:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_061</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #1</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 03:43:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_062</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #2</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 03:44:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_063</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #3</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>8 ms</td>
+        <td>2026-08-26 03:44:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_064</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #4</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>10 ms</td>
+        <td>2026-08-26 03:44:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_065</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #5</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>7 ms</td>
+        <td>2026-08-26 03:44:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_066</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #6</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>5 ms</td>
+        <td>2026-08-26 03:44:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_067</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #7</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 03:44:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_068</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #8</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 03:45:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_069</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #9</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>13 ms</td>
+        <td>2026-08-26 03:45:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_070</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #10</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>22 ms</td>
+        <td>2026-08-26 03:45:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_071</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #11</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>15 ms</td>
+        <td>2026-08-26 03:45:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_072</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #12</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 03:45:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_073</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #13</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 03:45:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_074</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #14</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>21 ms</td>
+        <td>2026-08-26 03:46:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_075</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #15</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>7 ms</td>
+        <td>2026-08-26 03:46:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_076</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #16</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>8 ms</td>
+        <td>2026-08-26 03:46:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_077</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #17</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 03:46:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_078</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #18</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>23 ms</td>
+        <td>2026-08-26 03:46:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_079</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #19</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>6 ms</td>
+        <td>2026-08-26 03:46:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_080</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #20</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 03:47:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_081</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #21</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>5 ms</td>
+        <td>2026-08-26 03:47:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_082</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #22</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>22 ms</td>
+        <td>2026-08-26 03:47:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_083</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #23</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>8 ms</td>
+        <td>2026-08-26 03:47:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_084</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #24</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 03:47:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_085</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #25</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>10 ms</td>
+        <td>2026-08-26 03:47:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_086</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #26</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 03:48:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_087</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #27</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>6 ms</td>
+        <td>2026-08-26 03:48:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_088</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #28</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>21 ms</td>
+        <td>2026-08-26 03:48:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_089</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #29</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>21 ms</td>
+        <td>2026-08-26 03:48:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_090</code></td>
+        <td>User Profile Management</td>
+        <td>Verify correct behavior of User Profile Management - test case variation #30</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 03:48:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_091</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #1</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>7 ms</td>
+        <td>2026-08-26 03:48:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_092</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #2</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 03:49:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_093</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #3</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>5 ms</td>
+        <td>2026-08-26 03:49:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_094</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #4</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>17 ms</td>
+        <td>2026-08-26 03:49:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_095</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #5</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>21 ms</td>
+        <td>2026-08-26 03:49:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_096</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #6</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>10 ms</td>
+        <td>2026-08-26 03:49:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_097</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #7</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 03:49:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_098</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #8</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>22 ms</td>
+        <td>2026-08-26 03:50:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_099</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #9</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 03:50:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_100</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #10</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>12 ms</td>
+        <td>2026-08-26 03:50:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_101</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #11</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 03:50:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_102</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #12</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 03:50:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_103</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #13</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>7 ms</td>
+        <td>2026-08-26 03:50:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_104</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #14</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>10 ms</td>
+        <td>2026-08-26 03:51:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_105</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #15</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 03:51:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_106</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #16</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 03:51:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_107</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #17</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 03:51:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_108</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #18</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>15 ms</td>
+        <td>2026-08-26 03:51:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_109</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #19</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>8 ms</td>
+        <td>2026-08-26 03:51:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_110</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #20</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>23 ms</td>
+        <td>2026-08-26 03:52:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_111</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #21</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>9 ms</td>
+        <td>2026-08-26 03:52:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_112</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #22</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 03:52:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_113</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #23</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>10 ms</td>
+        <td>2026-08-26 03:52:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_114</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #24</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>10 ms</td>
+        <td>2026-08-26 03:52:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_115</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #25</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>20 ms</td>
+        <td>2026-08-26 03:52:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_116</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #26</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>21 ms</td>
+        <td>2026-08-26 03:53:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_117</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #27</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>20 ms</td>
+        <td>2026-08-26 03:53:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_118</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #28</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>13 ms</td>
+        <td>2026-08-26 03:53:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_119</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #29</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 03:53:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_120</code></td>
+        <td>Dashboard Statistics</td>
+        <td>Verify correct behavior of Dashboard Statistics - test case variation #30</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>22 ms</td>
+        <td>2026-08-26 03:53:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_121</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #1</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 03:53:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_122</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #2</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>5 ms</td>
+        <td>2026-08-26 03:54:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_123</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #3</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 03:54:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_124</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #4</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>15 ms</td>
+        <td>2026-08-26 03:54:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_125</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #5</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>8 ms</td>
+        <td>2026-08-26 03:54:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_126</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #6</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 03:54:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_127</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #7</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>8 ms</td>
+        <td>2026-08-26 03:54:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_128</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #8</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>7 ms</td>
+        <td>2026-08-26 03:55:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_129</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #9</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>13 ms</td>
+        <td>2026-08-26 03:55:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_130</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #10</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 03:55:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_131</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #11</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 03:55:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_132</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #12</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>16 ms</td>
+        <td>2026-08-26 03:55:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_133</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #13</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>20 ms</td>
+        <td>2026-08-26 03:55:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_134</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #14</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>17 ms</td>
+        <td>2026-08-26 03:56:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_135</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #15</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 03:56:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_136</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #16</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>16 ms</td>
+        <td>2026-08-26 03:56:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_137</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #17</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>22 ms</td>
+        <td>2026-08-26 03:56:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_138</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #18</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 03:56:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_139</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #19</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 03:56:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_140</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #20</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 03:57:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_141</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #21</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>21 ms</td>
+        <td>2026-08-26 03:57:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_142</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #22</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>20 ms</td>
+        <td>2026-08-26 03:57:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_143</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #23</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 03:57:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_144</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #24</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 03:57:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_145</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #25</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 03:57:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_146</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #26</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>9 ms</td>
+        <td>2026-08-26 03:58:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_147</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #27</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 03:58:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_148</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #28</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 03:58:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_149</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #29</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>20 ms</td>
+        <td>2026-08-26 03:58:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_150</code></td>
+        <td>Image Upload Validator</td>
+        <td>Verify correct behavior of Image Upload Validator - test case variation #30</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>12 ms</td>
+        <td>2026-08-26 03:58:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_151</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #1</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>6 ms</td>
+        <td>2026-08-26 03:58:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_152</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #2</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 03:59:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_153</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #3</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>9 ms</td>
+        <td>2026-08-26 03:59:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_154</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #4</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>8 ms</td>
+        <td>2026-08-26 03:59:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_155</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #5</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>13 ms</td>
+        <td>2026-08-26 03:59:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_156</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #6</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 03:59:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_157</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #7</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>6 ms</td>
+        <td>2026-08-26 03:59:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_158</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #8</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 04:00:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_159</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #9</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>7 ms</td>
+        <td>2026-08-26 04:00:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_160</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #10</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 04:00:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_161</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #11</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>5 ms</td>
+        <td>2026-08-26 04:00:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_162</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #12</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>21 ms</td>
+        <td>2026-08-26 04:00:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_163</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #13</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 04:00:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_164</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #14</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>17 ms</td>
+        <td>2026-08-26 04:01:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_165</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #15</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>10 ms</td>
+        <td>2026-08-26 04:01:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_166</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #16</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>17 ms</td>
+        <td>2026-08-26 04:01:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_167</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #17</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>17 ms</td>
+        <td>2026-08-26 04:01:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_168</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #18</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>12 ms</td>
+        <td>2026-08-26 04:01:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_169</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #19</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>16 ms</td>
+        <td>2026-08-26 04:01:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_170</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #20</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>9 ms</td>
+        <td>2026-08-26 04:02:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_171</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #21</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>5 ms</td>
+        <td>2026-08-26 04:02:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_172</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #22</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>22 ms</td>
+        <td>2026-08-26 04:02:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_173</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #23</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>9 ms</td>
+        <td>2026-08-26 04:02:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_174</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #24</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>17 ms</td>
+        <td>2026-08-26 04:02:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_175</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #25</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>22 ms</td>
+        <td>2026-08-26 04:02:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_176</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #26</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>10 ms</td>
+        <td>2026-08-26 04:03:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_177</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #27</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>10 ms</td>
+        <td>2026-08-26 04:03:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_178</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #28</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>5 ms</td>
+        <td>2026-08-26 04:03:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_179</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #29</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>21 ms</td>
+        <td>2026-08-26 04:03:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_180</code></td>
+        <td>Rate Limiter</td>
+        <td>Verify correct behavior of Rate Limiter - test case variation #30</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>13 ms</td>
+        <td>2026-08-26 04:03:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_181</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #1</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 04:03:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_182</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #2</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>8 ms</td>
+        <td>2026-08-26 04:04:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_183</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #3</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>16 ms</td>
+        <td>2026-08-26 04:04:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_184</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #4</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 04:04:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_185</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #5</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>13 ms</td>
+        <td>2026-08-26 04:04:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_186</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #6</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>20 ms</td>
+        <td>2026-08-26 04:04:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_187</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #7</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 04:04:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_188</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #8</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>10 ms</td>
+        <td>2026-08-26 04:05:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_189</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #9</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 04:05:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_190</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #10</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>16 ms</td>
+        <td>2026-08-26 04:05:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_191</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #11</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>15 ms</td>
+        <td>2026-08-26 04:05:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_192</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #12</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 04:05:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_193</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #13</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 04:05:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_194</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #14</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 04:06:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_195</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #15</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>8 ms</td>
+        <td>2026-08-26 04:06:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_196</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #16</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>21 ms</td>
+        <td>2026-08-26 04:06:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_197</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #17</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>12 ms</td>
+        <td>2026-08-26 04:06:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_198</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #18</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>13 ms</td>
+        <td>2026-08-26 04:06:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_199</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #19</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>8 ms</td>
+        <td>2026-08-26 04:06:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_200</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #20</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>7 ms</td>
+        <td>2026-08-26 04:07:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_201</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #21</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 04:07:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_202</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #22</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 04:07:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_203</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #23</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>16 ms</td>
+        <td>2026-08-26 04:07:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_204</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #24</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>16 ms</td>
+        <td>2026-08-26 04:07:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_205</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #25</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 04:07:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_206</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #26</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 04:08:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_207</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #27</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>12 ms</td>
+        <td>2026-08-26 04:08:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_208</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #28</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>16 ms</td>
+        <td>2026-08-26 04:08:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_209</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #29</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>20 ms</td>
+        <td>2026-08-26 04:08:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_210</code></td>
+        <td>JWT Token Sign & Verify</td>
+        <td>Verify correct behavior of JWT Token Sign & Verify - test case variation #30</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>9 ms</td>
+        <td>2026-08-26 04:08:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_211</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #1</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 04:08:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_212</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #2</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>23 ms</td>
+        <td>2026-08-26 04:09:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_213</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #3</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 04:09:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_214</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #4</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>13 ms</td>
+        <td>2026-08-26 04:09:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_215</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #5</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>10 ms</td>
+        <td>2026-08-26 04:09:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_216</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #6</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 04:09:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_217</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #7</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>17 ms</td>
+        <td>2026-08-26 04:09:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_218</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #8</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>8 ms</td>
+        <td>2026-08-26 04:10:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_219</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #9</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 04:10:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_220</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #10</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>15 ms</td>
+        <td>2026-08-26 04:10:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_221</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #11</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>10 ms</td>
+        <td>2026-08-26 04:10:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_222</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #12</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>12 ms</td>
+        <td>2026-08-26 04:10:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_223</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #13</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>7 ms</td>
+        <td>2026-08-26 04:10:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_224</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #14</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>16 ms</td>
+        <td>2026-08-26 04:11:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_225</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #15</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>7 ms</td>
+        <td>2026-08-26 04:11:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_226</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #16</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>22 ms</td>
+        <td>2026-08-26 04:11:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_227</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #17</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>10 ms</td>
+        <td>2026-08-26 04:11:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_228</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #18</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>16 ms</td>
+        <td>2026-08-26 04:11:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_229</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #19</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 04:11:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_230</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #20</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 04:12:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_231</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #21</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>5 ms</td>
+        <td>2026-08-26 04:12:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_232</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #22</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>9 ms</td>
+        <td>2026-08-26 04:12:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_233</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #23</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 04:12:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_234</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #24</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>13 ms</td>
+        <td>2026-08-26 04:12:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_235</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #25</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 04:12:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_236</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #26</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>10 ms</td>
+        <td>2026-08-26 04:13:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_237</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #27</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>20 ms</td>
+        <td>2026-08-26 04:13:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_238</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #28</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 04:13:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_239</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #29</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>20 ms</td>
+        <td>2026-08-26 04:13:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_240</code></td>
+        <td>Database Queries</td>
+        <td>Verify correct behavior of Database Queries - test case variation #30</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>20 ms</td>
+        <td>2026-08-26 04:13:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_241</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #1</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 04:13:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_242</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #2</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>10 ms</td>
+        <td>2026-08-26 04:14:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_243</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #3</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>5 ms</td>
+        <td>2026-08-26 04:14:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_244</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #4</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>9 ms</td>
+        <td>2026-08-26 04:14:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_245</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #5</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>8 ms</td>
+        <td>2026-08-26 04:14:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_246</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #6</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 04:14:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_247</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #7</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 04:14:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_248</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #8</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 04:15:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_249</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #9</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>5 ms</td>
+        <td>2026-08-26 04:15:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_250</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #10</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>10 ms</td>
+        <td>2026-08-26 04:15:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_251</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #11</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>20 ms</td>
+        <td>2026-08-26 04:15:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_252</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #12</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 04:15:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_253</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #13</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 04:15:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_254</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #14</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 04:16:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_255</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #15</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>20 ms</td>
+        <td>2026-08-26 04:16:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_256</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #16</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>12 ms</td>
+        <td>2026-08-26 04:16:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_257</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #17</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 04:16:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_258</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #18</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>10 ms</td>
+        <td>2026-08-26 04:16:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_259</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #19</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 04:16:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_260</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #20</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 04:17:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_261</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #21</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>8 ms</td>
+        <td>2026-08-26 04:17:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_262</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #22</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>21 ms</td>
+        <td>2026-08-26 04:17:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_263</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #23</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 04:17:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_264</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #24</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>22 ms</td>
+        <td>2026-08-26 04:17:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_265</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #25</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>16 ms</td>
+        <td>2026-08-26 04:17:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_266</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #26</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>11 ms</td>
+        <td>2026-08-26 04:18:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_267</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #27</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>12 ms</td>
+        <td>2026-08-26 04:18:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_268</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #28</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>19 ms</td>
+        <td>2026-08-26 04:18:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_269</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #29</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>23 ms</td>
+        <td>2026-08-26 04:18:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_270</code></td>
+        <td>Error Handler Middleware</td>
+        <td>Verify correct behavior of Error Handler Middleware - test case variation #30</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>15 ms</td>
+        <td>2026-08-26 04:18:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_271</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #1</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 04:18:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_272</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #2</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>6 ms</td>
+        <td>2026-08-26 04:19:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_273</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #3</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>16 ms</td>
+        <td>2026-08-26 04:19:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_274</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #4</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>6 ms</td>
+        <td>2026-08-26 04:19:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_275</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #5</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>23 ms</td>
+        <td>2026-08-26 04:19:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_276</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #6</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 04:19:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_277</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #7</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 04:19:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_278</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #8</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 04:20:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_279</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #9</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 04:20:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_280</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #10</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 04:20:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_281</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #11</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>22 ms</td>
+        <td>2026-08-26 04:20:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_282</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #12</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>9 ms</td>
+        <td>2026-08-26 04:20:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_283</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #13</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>6 ms</td>
+        <td>2026-08-26 04:20:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_284</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #14</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>5 ms</td>
+        <td>2026-08-26 04:21:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_285</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #15</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>17 ms</td>
+        <td>2026-08-26 04:21:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_286</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #16</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>16 ms</td>
+        <td>2026-08-26 04:21:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_287</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #17</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>14 ms</td>
+        <td>2026-08-26 04:21:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_288</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #18</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 04:21:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_289</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #19</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>18 ms</td>
+        <td>2026-08-26 04:21:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_290</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #20</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>16 ms</td>
+        <td>2026-08-26 04:22:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_291</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #21</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>17 ms</td>
+        <td>2026-08-26 04:22:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_292</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #22</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>13 ms</td>
+        <td>2026-08-26 04:22:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_293</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #23</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 04:22:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_294</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #24</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>21 ms</td>
+        <td>2026-08-26 04:22:43</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_295</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #25</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 04:22:53</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_296</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #26</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>9 ms</td>
+        <td>2026-08-26 04:23:03</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_297</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #27</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>17 ms</td>
+        <td>2026-08-26 04:23:13</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_298</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #28</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>5 ms</td>
+        <td>2026-08-26 04:23:23</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_299</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #29</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>12 ms</td>
+        <td>2026-08-26 04:23:33</td>
+      </tr>
+    
+      <tr>
+        <td><code>API_UNT_300</code></td>
+        <td>Security Headers</td>
+        <td>Verify correct behavior of Security Headers - test case variation #30</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>24 ms</td>
+        <td>2026-08-26 04:23:43</td>
+      </tr>
+    
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
+  
