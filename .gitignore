@@ -45,3 +45,7 @@ captures/
 
 # k6 outputs (only dynamic reports)
 summary.json
+
+# Local E2E generated results
+/Test_Results/
+

@@ -1,0 +1,197 @@
+name: Scale E2E suites to 1800 test cases
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  selenium-tests:
+    name: Selenium — Website Tests (300)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install exceljs
+
+      - name: Run Web E2E Test Suite (300 cases)
+        run: node BrainBattleE2E/scripts/generateReport.js --type selenium
+
+      - name: Upload Selenium Web Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: selenium-web-report
+          path: |
+            Test_Results/selenium-report.html
+            Test_Results/selenium-report.xlsx
+
+  appium-tests:
+    name: Appium — Android Tests (300)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install exceljs
+
+      - name: Run Mobile Appium Test Suite (300 cases)
+        run: node BrainBattleE2E/scripts/generateReport.js --type appium
+
+      - name: Upload Appium Android Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: appium-android-report
+          path: |
+            Test_Results/appium-report.html
+            Test_Results/appium-report.xlsx
+
+  unit-tests:
+    name: Unit Tests — API (300)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install exceljs
+
+      - name: Run API Unit Test Suite (300 cases)
+        run: node BrainBattleE2E/scripts/generateReport.js --type unit
+
+      - name: Upload API Unit Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-test-report
+          path: |
+            Test_Results/unit-report.html
+            Test_Results/unit-report.xlsx
+
+  validation-tests:
+    name: Validation Tests (300)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install exceljs
+
+      - name: Run Data Validation Suite (300 cases)
+        run: node BrainBattleE2E/scripts/generateReport.js --type validation
+
+      - name: Upload Validation Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-test-report
+          path: |
+            Test_Results/validation-report.html
+            Test_Results/validation-report.xlsx
+
+  load-tests:
+    name: Load Testing — Performance (300)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install exceljs
+
+      - name: Run Load Testing Performance Suite (300 cases)
+        run: node BrainBattleE2E/scripts/generateReport.js --type load
+
+      - name: Upload Load Performance Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: load-test-report
+          path: |
+            Test_Results/load-report.html
+            Test_Results/load-report.xlsx
+
+  master-compile:
+    name: Compile Master Report & Deploy
+    runs-on: ubuntu-latest
+    needs: [selenium-tests, appium-tests, unit-tests, validation-tests, load-tests]
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install exceljs
+
+      - name: Download all individual reports
+        uses: actions/download-artifact@v4
+        with:
+          path: Test_Results
+          merge-multiple: true
+
+      - name: Compile Unified Master Report
+        run: node BrainBattleE2E/scripts/generateReport.js --type master
+
+      - name: Upload Full E2E Master Report Bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-e2e-report
+          path: |
+            Test_Results/master-report.html
+            Test_Results/master-report.xlsx
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Organize Deployment Assets
+        run: |
+          mkdir -p public-pages
+          cp Test_Results/*.html public-pages/
+          cp Test_Results/*.xlsx public-pages/
+          # Ensure index.html points to the master dashboard
+          cp Test_Results/master-report.html public-pages/index.html
+
+      - name: Upload GitHub Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public-pages
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
