@@ -136,6 +136,9 @@ jobs:
     name: Deploy
     needs: bundle-reports
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: https://regondamaruthi123.github.io/git-workshop/
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
